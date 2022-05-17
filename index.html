@@ -239,7 +239,7 @@
 <p>注：此处因为先前配置时的zookeeper版本和spark版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的zookeeper。配置之前需要删除三台主机的旧版zookeeper以及对应的软连接。 </p>
 <p>在node1节点上重新进行前面配置的zookerper操作 </p>
 <p>\1. 上传apache-zookeeper-3.7.0-bin.tar.gz到&#x2F;export&#x2F;server&#x2F;目录下并解压文件</p>
-<p>cd &#x2F;export&#x2F;server&#x2F;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /export/server/</span><br><span class="line"></span><br><span class="line">tar -zxvf apache-zookeeper-3.7.0-bin.tar.gz</span><br></pre></td></tr></table></figure>
 <p>
                 
             
@@ -331,8 +331,8 @@
                     
                     <p><p><em><strong>*五、Spark-local模式*</strong></em></p>
 <p>\1. 上传并安装Anaconda3-2021.05-Linux-x86_64.sh文件</p>
-<p>cd &#x2F;export&#x2F;server&#x2F;</p>
-<p>sh Anaconda3-2021.05-Linux-x86_64.sh</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /export/server/</span><br><span class="line"></span><br><span class="line">sh Anaconda3-2021.05-Linux-x86_64.sh</span><br></pre></td></tr></table></figure>
+
 <p>\2. 过程显示： </p>
 <p>
                 
@@ -425,9 +425,9 @@
                     
                     <p><p><em><strong>*一、配置基础环境*</strong></em> </p>
 <p>#主机名 </p>
-<p> cat &#x2F;etc&#x2F;hostname</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/hostname</span><br></pre></td></tr></table></figure>
+
 <p> # hosts映射</p>
-<p> vim &#x2F;etc&#x2F;hosts</p>
 <p>
                 
             
