@@ -12,30 +12,30 @@
     <meta name="description" content="*七、Spark-Standalone-HA模式* 注：此处因为先前配置时的zookeeper版本和spark版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的zookeeper。配置之前需要删除三台主机的旧版zookeeper以及对应的软连接。  在node1节点上重新进行前面配置的zookerper操作  \1. 上传apache-zookeeper-3.7.0-bin.tar.gz到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark HA &amp; Yarn配置">
-<meta property="og:url" content="http://example.com/2022/05/17/three/index.html">
+<meta property="og:url" content="https://123yujiahang.github.io/2022/05/17/three/index.html">
 <meta property="og:site_name" content="123Yujiahang&#39;s Wiki">
 <meta property="og:description" content="*七、Spark-Standalone-HA模式* 注：此处因为先前配置时的zookeeper版本和spark版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的zookeeper。配置之前需要删除三台主机的旧版zookeeper以及对应的软连接。  在node1节点上重新进行前面配置的zookerper操作  \1. 上传apache-zookeeper-3.7.0-bin.tar.gz到">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2022/05/17/three/1.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/2.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/3.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/4.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/12.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/5.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/6.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/13.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/7.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/8.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/14.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/9.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/10.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/15.png">
-<meta property="og:image" content="http://example.com/2022/05/17/three/11.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/1.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/2.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/3.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/4.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/12.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/5.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/6.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/13.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/7.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/8.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/14.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/9.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/10.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/15.png">
+<meta property="og:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/11.png">
 <meta property="article:published_time" content="2022-05-17T05:42:06.000Z">
 <meta property="article:modified_time" content="2022-05-17T06:44:29.861Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/05/17/three/1.png">
+<meta name="twitter:image" content="https://123yujiahang.github.io/blog/2022/05/17/three/three/1.png">
     
 
     
@@ -43,37 +43,37 @@
     
 
     
-        <link rel="icon" href="/css/images/favicon.ico" />
+        <link rel="icon" href="/blog/css/images/favicon.ico" />
     
 
     
-<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/blog/libs/font-awesome/css/font-awesome.min.css">
 
     
-<link rel="stylesheet" href="/libs/open-sans/styles.css">
+<link rel="stylesheet" href="/blog/libs/open-sans/styles.css">
 
     
-<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+<link rel="stylesheet" href="/blog/libs/source-code-pro/styles.css">
 
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/blog/css/style.css">
 
     
-<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="/blog/libs/jquery/2.1.3/jquery.min.js"></script>
 
     
-<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
-
-    
-    
-        
-<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+<script src="/blog/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
 
     
     
         
-<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+<link rel="stylesheet" href="/blog/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/blog/libs/justified-gallery/justifiedGallery.min.css">
 
     
     
@@ -91,21 +91,21 @@
         <header id="header">
     <div id="header-main" class="header-inner">
         <div class="outer">
-            <a href="/" id="logo">
+            <a href="/blog/" id="logo">
                 <i class="logo"></i>
                 <span class="site-title">123Yujiahang&#39;s Wiki</span>
             </a>
             <nav id="main-nav">
                 
-                    <a class="main-nav-link" href="/">首页</a>
+                    <a class="main-nav-link" href="/blog/">首页</a>
                 
-                    <a class="main-nav-link" href="/archives">归档</a>
+                    <a class="main-nav-link" href="/blog/archives">归档</a>
                 
-                    <a class="main-nav-link" href="/categories">分类</a>
+                    <a class="main-nav-link" href="/blog/categories">分类</a>
                 
-                    <a class="main-nav-link" href="/tags">标签</a>
+                    <a class="main-nav-link" href="/blog/tags">标签</a>
                 
-                    <a class="main-nav-link" href="/about">关于</a>
+                    <a class="main-nav-link" href="/blog/about">关于</a>
                 
             </nav>
             
@@ -113,7 +113,7 @@
                 <nav id="sub-nav">
                     <div class="profile" id="profile-nav">
                         <a id="profile-anchor" href="javascript:;">
-                            <img class="avatar" src="/css/images/R-C.jpg" />
+                            <img class="avatar" src="/blog/css/images/R-C.jpg" />
                             <i class="fa fa-caret-down"></i>
                         </a>
                     </div>
@@ -147,14 +147,14 @@
             TAGS: '标签',
             UNTITLED: '(未命名)',
         },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
+        ROOT_URL: '/blog/',
+        CONTENT_URL: '/blog/content.json',
     };
     window.INSIGHT_CONFIG = INSIGHT_CONFIG;
 })(window);
 </script>
 
-<script src="/js/insight.js"></script>
+<script src="/blog/js/insight.js"></script>
 
 
 </div>
@@ -164,15 +164,15 @@
         <table class="menu outer">
             <tr>
                 
-                    <td><a class="main-nav-link" href="/">首页</a></td>
+                    <td><a class="main-nav-link" href="/blog/">首页</a></td>
                 
-                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                    <td><a class="main-nav-link" href="/blog/archives">归档</a></td>
                 
-                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                    <td><a class="main-nav-link" href="/blog/categories">分类</a></td>
                 
-                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                    <td><a class="main-nav-link" href="/blog/tags">标签</a></td>
                 
-                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                    <td><a class="main-nav-link" href="/blog/about">关于</a></td>
                 
                 <td>
                     
@@ -193,7 +193,7 @@
 <aside id="profile">
     <div class="inner profile-inner">
         <div class="base-info profile-block">
-            <img id="avatar" src="/css/images/R-C.jpg" />
+            <img id="avatar" src="/blog/css/images/R-C.jpg" />
             <h2 id="name">123Yujiahang</h2>
             <h3 id="title">Designer &amp; Programmer</h3>
             <span id="location"><i class="fa fa-map-marker"></i>Chengdu, China</span>
@@ -222,7 +222,7 @@
                     </td>
                     
                     <td>
-                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                        <a href="/blog/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
                     </td>
@@ -255,7 +255,7 @@
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/05/17/three/">
+        <a href="/blog/2022/05/17/three/">
             <time datetime="2022-05-17T05:42:06.000Z" itemprop="datePublished">2022-05-17</time>
         </a>
     </div>
@@ -338,27 +338,27 @@
 
 <p># 在node2上启动一个备用的master进程</p>
 <p>#将node1的master kill掉，查看node2的WebUI界面</p>
-<p><img src="/2022/05/17/three/1.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/1.png" alt="img"> </p>
 <p><em><strong>*八、Spark-yarn模式*</strong></em></p>
 <p>1、启动yarn的历史服务器，jps看进程</p>
-<p><img src="/2022/05/17/three/2.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/2.png" alt="img"> </p>
 <p>2、在yarn上启动pyspark</p>
-<p><img src="/2022/05/17/three/3.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/3.png" alt="img"> </p>
 <p>3、命令测试</p>
-<p><img src="/2022/05/17/three/4.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/12.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/5.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/4.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/12.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/5.png" alt="img"> </p>
 <p>4、提交任务测试</p>
-<p><img src="/2022/05/17/three/6.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/13.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/7.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/6.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/13.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/7.png" alt="img"> </p>
 <p>5、client模式测试pi</p>
-<p><img src="/2022/05/17/three/8.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/14.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/9.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/8.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/14.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/9.png" alt="img"> </p>
 <p>6、cluster模式测试pi</p>
-<p><img src="/2022/05/17/three/10.png" alt="img"> </p>
-<p><img src="/2022/05/17/three/15.png" alt="img"><img src="/2022/05/17/three/11.png" alt="img"></p>
+<p><img src="/blog/2022/05/17/three/three/10.png" alt="img"> </p>
+<p><img src="/blog/2022/05/17/three/three/15.png" alt="img"><img src="/blog/2022/05/17/three/three/11.png" alt="img"></p>
 
             </div>
         
@@ -372,7 +372,7 @@
 <nav id="article-nav">
     
     
-        <a href="/2022/05/17/two/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/blog/2022/05/17/two/" id="article-nav-older" class="article-nav-link-wrap">
             <strong class="article-nav-caption">下一篇</strong>
             <div class="article-nav-title">Spark local&amp; stand-alone配置</div>
         </a>
@@ -415,36 +415,36 @@
 
     
         
-<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lightgallery.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-thumbnail.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-pager.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-autoplay.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-fullscreen.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-zoom.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-hash.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-share.min.js"></script>
 
         
-<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+<script src="/blog/libs/lightgallery/js/lg-video.min.js"></script>
 
     
     
         
-<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/blog/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
 
     
     
@@ -474,7 +474,7 @@
 
 <!-- Custom Scripts -->
 
-<script src="/js/main.js"></script>
+<script src="/blog/js/main.js"></script>
 
 
     </div>
