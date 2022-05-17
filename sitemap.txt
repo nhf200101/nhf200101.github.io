@@ -5,6 +5,6 @@ http://example.com/tags/index.html
 http://example.com/categories/index.html
 http://example.com/about/index.html
 http://example.com/
-http://example.com/categories/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/
 http://example.com/categories/Spark-HA-Yarn%E9%85%8D%E7%BD%AE/
+http://example.com/categories/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/
 http://example.com/categories/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/
