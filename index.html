@@ -162,117 +162,12 @@
                 <aside id="sidebar">
    
         
-    <div class="widget-wrap" id='categories'>
-        <h3 class="widget-title">
-            <span>分类</span>
-            &nbsp;
-            <a id='allExpand' href="#">
-                <i class="fa fa-angle-double-up fa-2x"></i>
-            </a>
-        </h3>
-        
-        
-        
-         <ul class="unstyled" id="tree" style="display: block;"> 
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Spark HA & Yarn配置
-                        </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/2022/05/17/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">Spark HA & Yarn配置</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Spark local& stand-alone配置
-                        </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/2022/05/17/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">Spark local& stand-alone配置</a></li>  </ul> 
-                    </li> 
-                    
-                    <li class="directory">
-                        <a href="#" data-role="directory">
-                            <i class="fa fa-folder-open"></i>
-                            &nbsp;
-                            Spark基础配置
-                        </a>
-                         <ul class="unstyled" id="tree" style="display: block;">  <li class="file"><a href="/2022/05/17/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">Spark基础配置</a></li>  </ul> 
-                    </li> 
-                     </ul> 
-    </div>
-    <script>
-        $(document).ready(function() {
-            var iconFolderOpenClass  = 'fa-folder-open';
-            var iconFolderCloseClass = 'fa-folder';
-            var iconAllExpandClass = 'fa-angle-double-down';
-            var iconAllPackClass = 'fa-angle-double-up';
-            // Handle directory-tree expansion:
-            // 左键单独展开目录
-            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
-                event.preventDefault();
-
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconFolderOpenClass);
-                var subtree = $(this).siblings('ul');
-                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
-                if (expanded) {
-                    if (typeof subtree != 'undefined') {
-                        subtree.slideUp({ duration: 100 });
-                    }
-                    icon.addClass(iconFolderCloseClass);
-                } else {
-                    if (typeof subtree != 'undefined') {
-                        subtree.slideDown({ duration: 100 });
-                    }
-                    icon.addClass(iconFolderOpenClass);
-                }
-            });
-            // 右键展开下属所有目录
-            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
-                event.preventDefault();
-                
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconFolderOpenClass);
-                var listNode = $(this).siblings('ul');
-                var subtrees = $.merge(listNode.find('li ul'), listNode);
-                var icons = $.merge(listNode.find('.fa'), icon);
-                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
-                if(expanded) {
-                    subtrees.slideUp({ duration: 100 });
-                    icons.addClass(iconFolderCloseClass);
-                } else {
-                    subtrees.slideDown({ duration: 100 });
-                    icons.addClass(iconFolderOpenClass);
-                }
-            })
-            // 展开关闭所有目录按钮
-            $(document).on('click', '#allExpand', function (event) {
-                event.preventDefault();
-                
-                var icon = $(this).children('.fa');
-                var expanded = icon.hasClass(iconAllExpandClass);
-                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
-                if(expanded) {
-                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
-                    $('#categories li ul').slideDown({ duration: 100 });
-                    icon.addClass(iconAllPackClass);
-                } else {
-                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
-                    $('#categories li ul').slideUp({ duration: 100 });
-                    icon.addClass(iconAllExpandClass);
-                }
-            });  
-        });
-    </script>
-
     
     <div id="toTop" class="fa fa-angle-up"></div>
 </aside>
             
             <section id="main">
-        <article id="post-Spark HA &amp; Yarn配置/Spark HA &amp; Yarn配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-three" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -280,17 +175,12 @@
                 
                     <div class="article-meta">
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Spark-HA-Yarn%E9%85%8D%E7%BD%AE/">Spark HA & Yarn配置</a>
-    </div>
-
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/05/17/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-05-17T01:32:11.943Z" itemprop="datePublished">2022-05-17</time>
+        <a href="/2022/05/17/three/">
+            <time datetime="2022-05-17T05:42:06.000Z" itemprop="datePublished">2022-05-17</time>
         </a>
     </div>
 
@@ -301,13 +191,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/Spark HA &amp; Yarn配置/Spark HA &amp; Yarn配置.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/three.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/Spark HA &amp; Yarn配置/Spark HA &amp; Yarn配置.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/three.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/Spark HA &amp; Yarn配置/Spark HA &amp; Yarn配置.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/three.md'> History </a>
                             </div>
                         
                     </div>
@@ -315,7 +205,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2022/05/17/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/">Spark HA &amp; Yarn配置</a>
+            <a class="article-title" href="/2022/05/17/three/">Spark HA &amp; Yarn配置</a>
         </h1>
     
 
@@ -357,7 +247,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/2022/05/17/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/Spark%20HA%20&%20Yarn%E9%85%8D%E7%BD%AE/#more">查看更多</a>
+                <a href="/2022/05/17/three/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -371,7 +261,7 @@
 
 
     
-        <article id="post-Spark local&amp; stand-alone配置/Spark local&amp; stand-alone配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-two" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -379,17 +269,12 @@
                 
                     <div class="article-meta">
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Spark-local-stand-alone%E9%85%8D%E7%BD%AE/">Spark local& stand-alone配置</a>
-    </div>
-
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/05/17/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-05-17T01:28:25.535Z" itemprop="datePublished">2022-05-17</time>
+        <a href="/2022/05/17/two/">
+            <time datetime="2022-05-17T04:58:19.000Z" itemprop="datePublished">2022-05-17</time>
         </a>
     </div>
 
@@ -400,13 +285,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/Spark local&amp; stand-alone配置/Spark local&amp; stand-alone配置.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/two.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/Spark local&amp; stand-alone配置/Spark local&amp; stand-alone配置.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/two.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/Spark local&amp; stand-alone配置/Spark local&amp; stand-alone配置.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/two.md'> History </a>
                             </div>
                         
                     </div>
@@ -414,7 +299,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2022/05/17/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/">Spark local&amp; stand-alone配置</a>
+            <a class="article-title" href="/2022/05/17/two/">Spark local&amp; stand-alone配置</a>
         </h1>
     
 
@@ -456,7 +341,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/2022/05/17/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/Spark%20local&%20stand-alone%E9%85%8D%E7%BD%AE/#more">查看更多</a>
+                <a href="/2022/05/17/two/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
@@ -470,7 +355,7 @@
 
 
     
-        <article id="post-Spark基础配置/Spark基础配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-one" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
         
@@ -478,17 +363,12 @@
                 
                     <div class="article-meta">
                         
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">Spark基础配置</a>
-    </div>
-
                         
                         
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2022/05/17/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">
-            <time datetime="2022-05-17T01:24:19.879Z" itemprop="datePublished">2022-05-17</time>
+        <a href="/2022/05/17/one/">
+            <time datetime="2022-05-17T04:42:31.000Z" itemprop="datePublished">2022-05-17</time>
         </a>
     </div>
 
@@ -499,13 +379,13 @@
                         
                         
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/Spark基础配置/Spark基础配置.md'> Source </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/raw/master/source/_posts/one.md'> Source </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/Spark基础配置/Spark基础配置.md'> Edit </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/edit/master/source/_posts/one.md'> Edit </a>
                             </div>
                             <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/Spark基础配置/Spark基础配置.md'> History </a>
+                                <a target="_blank" rel="noopener" href='https://github.com/123Yujiahang/blog/commits/master/source/_posts/one.md'> History </a>
                             </div>
                         
                     </div>
@@ -513,7 +393,7 @@
                 
     
         <h1 itemprop="name">
-            <a class="article-title" href="/2022/05/17/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/">Spark基础配置</a>
+            <a class="article-title" href="/2022/05/17/one/">Spark基础配置</a>
         </h1>
     
 
@@ -555,7 +435,7 @@
         
             </div>   
             <div class="article-more-link">
-                <a href="/2022/05/17/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/Spark%E5%9F%BA%E7%A1%80%E9%85%8D%E7%BD%AE/#more">查看更多</a>
+                <a href="/2022/05/17/one/#more">查看更多</a>
             </div>
         
         <footer class="article-footer">
