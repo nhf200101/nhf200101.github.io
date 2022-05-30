@@ -12,30 +12,30 @@
     <meta name="description" content="*七、Spark-Standalone-HA模式* 注：此处因为先前配置时的zookeeper版本和spark版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的zookeeper。配置之前需要删除三台主机的旧版zookeeper以及对应的软连接。  在node1节点上重新进行前面配置的zookerper操作  \1. 上传apache-zookeeper-3.7.0-bin.tar.gz到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark HA &amp; Yarn配置">
-<meta property="og:url" content="https://123yujiahang.github.io/2022/05/17/three/index.html">
+<meta property="og:url" content="https://nhf200101.github.io/2022/05/17/three/index.html">
 <meta property="og:site_name" content="123Yujiahang&#39;s Wiki">
 <meta property="og:description" content="*七、Spark-Standalone-HA模式* 注：此处因为先前配置时的zookeeper版本和spark版本不太兼容，导致此模式有故障，需要重新下载配置新的版本的zookeeper。配置之前需要删除三台主机的旧版zookeeper以及对应的软连接。  在node1节点上重新进行前面配置的zookerper操作  \1. 上传apache-zookeeper-3.7.0-bin.tar.gz到">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/1.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/2.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/3.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/4.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/12.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/5.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/6.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/13.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/7.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/8.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/14.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/9.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/10.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/15.png">
-<meta property="og:image" content="https://123yujiahang.github.io/2022/05/17/three/11.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/1.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/2.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/3.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/4.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/12.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/5.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/6.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/13.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/7.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/8.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/14.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/9.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/10.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/15.png">
+<meta property="og:image" content="https://nhf200101.github.io/2022/05/17/three/11.png">
 <meta property="article:published_time" content="2022-05-17T05:42:06.000Z">
 <meta property="article:modified_time" content="2022-05-17T06:44:30.000Z">
 <meta property="article:author" content="123Yujiahang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://123yujiahang.github.io/2022/05/17/three/1.png">
+<meta name="twitter:image" content="https://nhf200101.github.io/2022/05/17/three/1.png">
     
 
     
